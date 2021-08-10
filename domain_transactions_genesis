@@ -1,8 +1,0 @@
-{"reqSignature":{},"txn":{"data":{"alias":"Nat Holloway","dest":"9BfpHx92oGh3fhC1tn3Qy5","role":"0","verkey":"~JTn9NEB1bW4SaWR7SYfJex"},"metadata":{},"type":"1"},"txnMetadata":{"seqNo":1},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"alias":"Nick McGough","dest":"WwBxAwoDVfMHKoJmgdZX3d","role":"0","verkey":"~5L6iu1vAqxhAzdLvjA8AvA"},"metadata":{},"type":"1"},"txnMetadata":{"seqNo":2},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"alias":"Lumedic","dest":"GrJetA6MARJJtQtvXe6a76","role":"0","verkey":"~TKabHAwo4rYsPhUkxzC4PZ"},"metadata":{},"type":"1"},"txnMetadata":{"seqNo":3},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"alias":"Aaron Reed","dest":"JD1Fw9TNu59shB2uhkxVxo","role":"0","verkey":"~SrCtSzGMG8s3JKEqGYoSue"},"metadata":{},"type":"1"},"txnMetadata":{"seqNo":4},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"dest":"JxzRZq3gTwNSBd53AoYYDz","role":"2","verkey":"~FsgAZJ6QjaNYeLNwDiG9RJ"},"metadata":{"from":"JD1Fw9TNu59shB2uhkxVxo"},"type":"1"},"txnMetadata":{"seqNo":5},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"dest":"2Lf1gAyNLEwiwXa7M1savw","role":"2","verkey":"~DE9AMpM3ikqvYwDkWCqDZx"},"metadata":{"from":"JD1Fw9TNu59shB2uhkxVxo"},"type":"1"},"txnMetadata":{"seqNo":6},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"dest":"5Wn8egUoAAwm3unVz8pKcH","role":"2","verkey":"~L3wiPDCevynBzASGAbTGnN"},"metadata":{"from":"JD1Fw9TNu59shB2uhkxVxo"},"type":"1"},"txnMetadata":{"seqNo":7},"ver":"1"}
-{"reqSignature":{},"txn":{"data":{"dest":"7iufBnrWcAiyJY6eestxZb","role":"2","verkey":"~5CpGhGvnrib6NasWUjDz4f"},"metadata":{"from":"JD1Fw9TNu59shB2uhkxVxo"},"type":"1"},"txnMetadata":{"seqNo":8},"ver":"1"}
