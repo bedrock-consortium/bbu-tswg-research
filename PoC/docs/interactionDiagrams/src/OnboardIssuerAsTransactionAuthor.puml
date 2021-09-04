@@ -1,0 +1,18 @@
+@startuml
+
+participant "Issuer" as IS
+participant "Bedrock Documentation" as DOCS
+participant "Bedrock Endorser" as END
+participant "Ledger" as LE
+
+group Onboard Issuer as Transaction Author
+IS->DOCS: Potential issuer searches for options on how to be an issuer
+DOCS->IS: Options found, Trustee/Steward/Endorser contact information supplied
+IS->END: Express interest in becoming Transaction Author on Bedrock
+END->IS: Request for transaction, includes Bedrock Transaction Author Agreement
+IS->IS: Author credential schema transaction, sign with ISSUER DID private key
+IS->END: Transaction provided, agreement signed, payment made if required
+END->LE: Using agent, credential schema transaction signed with endorser private key, written to ledger
+end
+
+@enduml

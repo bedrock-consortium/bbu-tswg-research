@@ -1,0 +1,27 @@
+@startuml
+
+participant "Transaction Author" as TA
+participant "Bedrock Endorser" as END
+participant "Ledger" as LE
+
+group Write Transaction as Endorser
+END->END: Author credential schema transaction, sign with ISSUER DID private key
+END->END: Sign transaction with ENDORSER private key
+END->LE: Transaction written to ledger
+LE->END: Write confirmed, entitlement balancee adjusted
+END->END: Use Indyscan to confirm DID on Ledger
+end
+
+group Write Transaction as Transaction Author
+TA->END: Express interest in acting as a Transaction Author on Bedrock
+END->TA: Request for transaction, includes Bedrock Transaction Author Agreement
+TA->TA: Author credential schema transaction, sign with ISSUER DID private key
+TA->END: Transaction provided, agreement signed, payment made if required
+END->END: Verify TAA signed. Sign transaction with ENDORSER private key
+END->LE: Transaction written to ledger
+LE->END: Write confirmed, entitlement balancee adjusted
+END->END: Use Indyscan to confirm DID on Ledger
+END->TA: Notified of success
+end
+
+@enduml
