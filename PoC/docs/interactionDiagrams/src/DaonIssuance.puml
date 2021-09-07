@@ -1,0 +1,41 @@
+@startuml
+
+participant "Bob" as USER
+participant "Bob's Mobile Phone" as MP
+participant "Daon Web Portal" as DA
+participant "Bedrock Ledger" as LE
+
+group Onboard User
+USER->DA: Click "Get Started" button
+DA->USER: Displays page with Terms of Use and Privacy Policy
+USER->DA: Accepts terms
+DA->USER: Displays page with form to collect mobile number
+USER->DA: Enter phone number
+DA->USER: Displays form to collect code
+DA->MP: SMS message with code
+USER->DA: Enter code, click "Start"
+DA->USER: Displays instructions for collecting Selfie
+USER->DA: User follows instructions for collecting selfie, submits.
+DA->USER: Displays instructions for collecting two-sided document
+USER->DA: User follows instructions to scan both sides of their Driver's License
+DA->USER: As each image scanned, user presented with resulting image to review
+USER->DA: User verifies each displayed image is acceptable
+DA->USER: Displays instructions for performing extra checks
+USER->DA: User performs liveness test
+DA->USER: Portal indicates success/results to the user, offers path to VC
+USER->DA: Connects with Daon's issuer agent, requests VC
+DA->MP:   Builds, extends credential offer to user's mobile agent
+MP->USER: Notifies user of the pending offer
+USER->MP: User taps to accept offer
+MP->DA:   Mobile agent accepts offer, asks for credential issuance
+DA->MP:   Credential issued to mobile agent
+MP->USER: Mobile agent UI reflects newly acquired credential
+end
+
+group Left to Do
+DA<->LE:  Define flows to ledger in this scenario
+MP<->LE:  Define flows to ledger in this scenario
+USER->DA: Define how user uses mobile app to connect with Daon 
+end
+
+@enduml
