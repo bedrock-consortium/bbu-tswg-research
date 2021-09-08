@@ -1,0 +1,41 @@
+@startuml
+
+participant "Bob" as USER
+participant "Bob's Mobile Phone" as MP
+participant "USAA Web Portal" as US
+Participant "Lumedic" as LU
+participant "Bedrock Ledger" as LE
+
+group Share Electronic Health Information with Application to Insurance Company
+USER->US: Chooses "Apply for Life Insurance" path
+US->USER: Displays page requesting information.  User may provide\n requested information or provide an Electronic Health Information Credential
+USER->US: Chooses Electronic Health Information Credential path
+US->USER: Displays page seeking user's consent to share data and\nthe terms under which it will be shared
+USER->US: Consents to share information and agrees to the terms
+US->USER: Displays page that can be used to begin the connection process
+USER->US: Connection established with USAA's agent
+US->USER: Displays page portraying successful connection and information on\narriving proof request for electronic health information.
+US->MP:   USAA agent sends Aries RFC 0037 compliant request-proof message to mobile agent
+MP->USER: Notifies user of request for proof
+USER->MP: User agrees to provide information
+MP->USER: Mobile agent presents user with available information in wallet that satisfies request
+USER->MP: User selects Lumedic credential, sends response
+MP->US:   Mobile agent sends presentation message to USAA agent
+US->US:   USAA agent verifies proof response
+US->MP:   USAA agent sends ack message to mobile agent
+MP->USER: Notifies user of successful share
+US->US:   Search for existing application or quote for user.  Quote found.
+US->US:   Gathered information from credential as well as user consent documented\nin the life insurance case file 
+US->USER: Displays Health and Lifestyle Questionnaire in the insurance application workflow
+USER->US: Submits completed questionnaire
+US->LU:   Initiate workflow to access all EMRs of the applicant
+US->US:   Add EMRs to applicant's life insurance case file
+end
+
+group Left to Do
+US<->LE:  Define flows to ledger in this scenario
+MP<->LE:  Define flows to ledger in this scenario
+USER->US: Define how user uses mobile app to connect with USAA
+end
+
+@enduml
