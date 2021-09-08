@@ -1,0 +1,35 @@
+@startuml
+
+participant "Bob" as USER
+participant "Bob's Mobile Phone" as MP
+participant "USAA Web Portal" as US
+participant "Bedrock Ledger" as LE
+
+group Acquire Life Insurance Quote
+USER->US: Chooses "Life Insurance Quote" path
+US->USER: Displays page requesting user information.  User may provide\nidentification information or provide an Identity Credential
+USER->US: Chooses Identity Credential path
+US->USER: Displays page that can be used to begin the connection process
+USER->US: Connection established with USAA's agent
+US->USER: Displays page portraying successful connection and information on\narriving proof request for identity
+US->MP:   USAA agent sends Aries RFC 0037 compliant request-proof message to mobile agent
+MP->USER: Notifies user of request for proof
+USER->MP: User agrees to provide information
+MP->USER: Mobile agent presents user with available information in wallet that satisfies request
+USER->MP: User makes choices, sends response
+MP->US:   Mobile agent sends presentation message to USAA agent
+US->US:   USAA agent verifies proof response
+US->MP:   USAA agent sends ack message to mobile agent
+MP->USER: Notifies user of successful share
+US->US:   Search for existing request for quote for user.  None found because new user
+US->US:   Create new life insurance quote for user, store in system of record
+US->USER: Display new life insurance quote information to the user.  Option\nprovided to user to apply for life insurance using the new quote.
+end
+
+group Left to Do
+US<->LE:  Define flows to ledger in this scenario
+MP<->LE:  Define flows to ledger in this scenario
+USER->DA: Define how user uses mobile app to connect with USAA
+end
+
+@enduml
