@@ -22,7 +22,9 @@ MP->USER: Notifies user of request for proof
 USER->MP: User agrees to provide information
 MP->USER: Mobile agent presents user with available information in wallet that satisfies request
 USER->MP: User makes choices, sends response
+MP->LE:   Mobile agent builds proof of non-revocation
 MP->LU:   Mobile agent sends presentation message to Lumedic agent
+LU->LE:   Checks for revocation, retrieves credential schemas and definitions for issuers
 LU->LU:   Lumedic agent verifies proof response
 LU->MP:   Lumedic agent sends ack message to mobile agent 
 MP->USER: Notifies user of successful share
@@ -38,15 +40,13 @@ LU->MP:   Builds, sends Aries RFC 0036 compliant offer-credential message to use
 MP->USER: Notifies user of the pending offer
 USER->MP: User taps to accept offer
 MP->LU:   Mobile agent accepts offer, sends request-credential message to Lumedic agent
+LU->LE:   Retrieves credential schema and definition
 LU->MP:   Lumedic agent sends issue-credential message to user's mobile agent
+MP->LE:   Retrieves credential definition
+MP->MP:   Credential signature verified, credential stored
 MP->LU:   Mobile agent sends ack message to Lumedic agent
 MP->USER: Mobile agent UI reflects newly acquired credential
 LU->USER: Displays successful issuance page to user
-end
-
-group Left to Do
-LU<->LE:  Define flows to ledger in this scenario
-MP<->LE:  Define flows to ledger in this scenario 
 end
 
 @enduml

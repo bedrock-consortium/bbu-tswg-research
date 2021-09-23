@@ -20,7 +20,9 @@ MP->USER: Notifies user of request for proof
 USER->MP: User agrees to provide information
 MP->USER: Mobile agent presents user with available information in wallet that satisfies request
 USER->MP: User selects Lumedic credential, sends response
+MP->LE:   Mobile agent builds proof of non-revocation
 MP->US:   Mobile agent sends presentation message to USAA agent
+US->LE:   Checks for revocation, retrieves credential schemas and definitions for issuers
 US->US:   USAA agent verifies proof response
 US->MP:   USAA agent sends ack message to mobile agent
 MP->USER: Notifies user of successful share
@@ -33,8 +35,6 @@ US->US:   Add EMRs to applicant's life insurance case file
 end
 
 group Left to Do
-US<->LE:  Define flows to ledger in this scenario
-MP<->LE:  Define flows to ledger in this scenario
 USER->US: Define how user uses mobile app to connect with USAA
 end
 

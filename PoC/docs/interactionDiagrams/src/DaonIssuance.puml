@@ -28,13 +28,14 @@ DA->MP:   Builds, extends credential offer to user's mobile agent
 MP->USER: Notifies user of the pending offer
 USER->MP: User taps to accept offer
 MP->DA:   Mobile agent accepts offer, asks for credential issuance
+DA->LE:   Retrieves credential schema and definition 
 DA->MP:   Credential issued to mobile agent
+MP->LE:   Retrieves credential definition
+MP->MP:   Credential signature verified, credential stored
 MP->USER: Mobile agent UI reflects newly acquired credential
 end
 
 group Left to Do
-DA<->LE:  Define flows to ledger in this scenario
-MP<->LE:  Define flows to ledger in this scenario
 USER->DA: Define how user uses mobile app to connect with Daon 
 end
 
