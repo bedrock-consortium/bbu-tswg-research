@@ -6,7 +6,7 @@ We were trying to add two USAA nodes to the developer network.
 
 ### Attendance
 
-Nat Halloway (USAA)
+Nat Holloway (USAA)
 Nick McGough (Daon)
 Aaron Reed (IBM)
 
@@ -22,7 +22,7 @@ Nat had already setup DID and verkey for both nodes.  We decided to add only one
 
 We believe that when Nat ran `ledger node target=<node_identifier> node_ip=<validator_node_ip_address> node_port=<node_port> client_ip=<validator_client_ip_address> client_port=<client_port> alias=<validator_alias> services=VALIDATOR blskey=<validator_bls_key> blskey_pop=<validator_bls_key_pop>` using server02 values but then went to the terminal for server03 and ran `sudo systemctl start indy-node`, then a node not registered to the ledger was making requests of the other nodes on the network causing issues.  Because we only had 3 nodes in consensus, when one of them started suffering errors, the network got out of consensus.
 
-As a side note, the two USAA VMs, due to excentricity of the USAA cloud, unable to respond to each other.
+As a side note, the two USAA VMs, due to excentricity of the USAA cloud, unable to respond to each other. The nodes are eall NATed to 167 public address but internally are on the 172.16 network. The networking folks will not reroute these IPs to circle back in. Unfortunately, USAA will only be able to have one node in this location and will decom these two servers.
 
 ### Lessons Learned
 
