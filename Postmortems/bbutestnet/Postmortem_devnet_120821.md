@@ -2,7 +2,7 @@
 
 ### Attendance
 
-Nat Halloway (USAA)
+Nat Holloway (USAA)
 Praneel Pallegar (CVS)
 Aaron Reed (IBM)
 
